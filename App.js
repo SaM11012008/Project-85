@@ -1,24 +1,37 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
 import Profile from './screens/Profile'
 import CreatePost from './screens/CreatePost'
 import Feed from './screens/Feed'
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text> Mam , what do we have to write in App.js ? </Text>
-      </View>
-    )
-  }
+const Tab = createBottomTabNavigator()
+
+export default function app() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            var iconName
+            if (route.name === 'Feed') {
+              iconName = focused ? "book" : "book-outline"
+            } else if (route.name === 'CreatePost') {
+              iconName = focused ? "create" : "create-outline"
+            }
+            return <Ionicons name={iconName} size={size} color={color} />
+          }
+        })}
+
+        tabBarOptions={{ activeTintColor: "tomato", activeTintColor: "gray" }}>
+
+        <Tab.Screen name="Feed" component={Feed} />
+        <Tab.Screen name="CreateStory" component={CreatePost} />
+
+      </Tab.Navigator>
+
+    </NavigationContainer>
+  )
+
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
