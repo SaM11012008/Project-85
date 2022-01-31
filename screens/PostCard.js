@@ -19,7 +19,7 @@ export default class PostCard extends Component {
                 <View style={styles.cardContainer}>
                     <View style={styles.authorContainer}>
                         <View style={styles.authorImageContainer}>
-                            < Image>
+                            <Image>
                                 source={require("../assets/profile_img.png")},
                                 style={styles.profileImage}
                             </Image>

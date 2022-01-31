@@ -3,9 +3,11 @@ import { Text, View, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-na
 import { FlatList } from 'react-native-gesture-handler'
 import PostCard from './PostCard'
 
-export default class Feed extends Component {
+let posts = require('./temp_posts.json')
 
-    renderItem = ({ item:posts  }) => {
+export default class Feed extends Component { 
+
+    renderItem = ({ item: posts }) => {
         return <PostCard posts={posts} />;
     };
 
