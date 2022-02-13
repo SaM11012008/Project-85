@@ -14,7 +14,6 @@ import { RFValue } from "react-native-responsive-fontsize";
 export default class PostCard extends Component {
     render() {
         return (
-
             <View style={styles.container}>
                 <View style={styles.cardContainer}>
                     <View style={styles.authorContainer}>
@@ -26,14 +25,14 @@ export default class PostCard extends Component {
                         </View>
                         <View style={styles.authorNameContainer}>
                             <Text style={styles.authorNameText}>
-                                {this.props.post.author}
+                                {this.props.posts.author}
                             </Text>
                         </View>
                     </View>
                     <Image source={require("../assets/post.jpeg")} style={styles.postImage} />
                     <View style={styles.captionContainer}>
                         <Text style={styles.captionText}>
-                            {this.props.post.caption}
+                            {this.props.posts.caption}
                         </Text>
                     </View>
                     <View style={styles.actionContainer}>
@@ -49,9 +48,9 @@ export default class PostCard extends Component {
     }
 }
 const styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center'
-        }
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
 })

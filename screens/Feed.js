@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet, SafeAreaView, Image } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
 import PostCard from './PostCard'
 
