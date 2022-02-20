@@ -37,7 +37,7 @@ export default class CreatePost extends Component {
                 <View style={styles.appTitle} >
                     <View style={styles.appIcon}>
                         <Image source={require("../assets/logo.png")}
-                            style={styles.iconImage} > </Image>
+                            style={styles.iconImage} />
                     </View>
                     <View style={styles.appTitleTextContainer}>
                         <Text style={styles.appTitleText}> New Post </Text>
