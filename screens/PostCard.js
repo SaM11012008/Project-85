@@ -4,7 +4,7 @@ import {
     Text,
     StyleSheet,
     SafeAreaView,
-    Platform,
+    TouchableOpacity,
     StatusBar,
     Image,
     Dimensions
@@ -41,51 +41,60 @@ export default class PostCard extends Component {
             return <AppLoading />;
         } else {
             return (
+                <TouchableOpacity
+                    style={styles.container}
+                    onPress={() =>
+                        this.props.navigation.navigate("PostScreen", {
+                            post: this.props.posts
+                        })
+                    }
+                >
 
-                <View style={styles.container}>
-                    <SafeAreaView style={styles.droidSafeArea} />
-                    <View style={styles.cardContainer}>
-                        <View style={styles.storyImage}>
-                            <Image source={require("../assets/image_6.jpg")} style={{
-                                resizeMode: "contain", width: Dimensions.get("window").width - 60, height: 250, borderRadius: 10
-                            }}></Image>
+                    <View style={styles.container}>
+                        <SafeAreaView style={styles.droidSafeArea} />
+                        <View style={styles.cardContainer}>
+                            <View style={styles.storyImage}>
+                                <Image source={require("../assets/image_6.jpg")} style={{
+                                    resizeMode: "contain", width: Dimensions.get("window").width - 60, height: 250, borderRadius: 10
+                                }}></Image>
 
-                        </View>
-                        <View style={styles.titleContainer}>
-                            <View style={styles.titleTextContainer}>
-                                <View style={styles.storyTitle}>
-                                    <Text style={styles.storyTitleText}>
-                                        {this.props.post.title}
-                                    </Text>
-                                </View>
-                                <View style={styles.storyAuthor}>
-                                    <Text style={styles.storyAuthorText}>
-                                        {this.props.post.author}
-                                    </Text>
+                            </View>
+                            <View style={styles.titleContainer}>
+                                <View style={styles.titleTextContainer}>
+                                    <View style={styles.storyTitle}>
+                                        <Text style={styles.storyTitleText}>
+                                            {this.props.post.title}
+                                        </Text>
+                                    </View>
+                                    <View style={styles.storyAuthor}>
+                                        <Text style={styles.storyAuthorText}>
+                                            {this.props.post.author}
+                                        </Text>
+                                    </View>
                                 </View>
                             </View>
-                        </View>
-                        <View style={styles.descriptionContainer}>
-                            <Text style={styles.descriptionText}>
-                                {this.props.post.created_on}
-                            </Text>
-                        </View>
-                        <View style={styles.actionContainer}>
-                            <View style={styles.likeButton}>
-                                <View style={styles.likeIcon}>
-                                    <Ionicons name={"heart"} size={30} color={"#ffffff"} style={{
-                                        width: 30, marginLeft: 20, marginTop: 5
-                                    }}></Ionicons>
-                                </View>
-                                <View>
-                                    <Text style={styles.likeText}>
-                                        12k
-                                    </Text>
+                            <View style={styles.descriptionContainer}>
+                                <Text style={styles.descriptionText}>
+                                    {this.props.post.created_on}
+                                </Text>
+                            </View>
+                            <View style={styles.actionContainer}>
+                                <View style={styles.likeButton}>
+                                    <View style={styles.likeIcon}>
+                                        <Ionicons name={"heart"} size={30} color={"#ffffff"} style={{
+                                            width: 30, marginLeft: 20, marginTop: 5
+                                        }}></Ionicons>
+                                    </View>
+                                    <View>
+                                        <Text style={styles.likeText}>
+                                            12k
+                                        </Text>
+                                    </View>
                                 </View>
                             </View>
                         </View>
                     </View>
-                </View>
+                </TouchableOpacity>
 
             );
         }

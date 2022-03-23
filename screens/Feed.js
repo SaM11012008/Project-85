@@ -39,8 +39,7 @@ export default class Feed extends Component {
     }
 
     renderItem = ({ item: posts }) => {
-        return (
-            <PostCard post={posts} />
+        return (<PostCard post={posts} navigation={this.props.navigation} />
         )
     };
 
